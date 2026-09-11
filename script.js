@@ -142,6 +142,7 @@ const fileName = document.querySelector('#file-name');
 const fileRemove = document.querySelector('#file-remove');
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
 const showFormButton = document.querySelector('#show-contact-form');
+if (form) form.hidden = true;
 
 showFormButton?.addEventListener('click', () => {
   if (!form) return;
