@@ -141,6 +141,18 @@ const fileSelection = document.querySelector('#file-selection');
 const fileName = document.querySelector('#file-name');
 const fileRemove = document.querySelector('#file-remove');
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
+const showFormButton = document.querySelector('#show-contact-form');
+
+showFormButton?.addEventListener('click', () => {
+  if (!form) return;
+  form.hidden = false;
+  showFormButton.setAttribute('aria-expanded', 'true');
+  showFormButton.querySelector('.choice-card-action')?.replaceChildren(document.createTextNode('Formulář je otevřen'));
+  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => document.querySelector('#name')?.focus(), 350);
+});
+
+
 
 const clearAttachment = () => {
   if (attachment) attachment.value = '';
