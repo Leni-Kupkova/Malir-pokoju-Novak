@@ -86,8 +86,8 @@
 <div class="form-field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel"></div>
 <div class="form-field"><label for="work">Typ práce <span class="required-star" aria-hidden="true">*</span></label><select id="work" name="work" required><option value="">Vyberte službu</option><option>Malování</option><option>Příprava stěn</option><option>Tapetování</option><option>Nátěry</option><option>Drobné opravy</option><option>Potřebuji poradit</option></select></div>
 <div class="form-field"><label for="message">Zpráva <span class="required-star" aria-hidden="true">*</span></label><textarea id="message" name="message" rows="4" placeholder="Např. 2 pokoje, cca 45 m², Příbram..." required></textarea></div>
-<div class="form-field form-file-field"><label for="attachment">Fotografie prostoru <span class="optional">(nepovinné)</span></label><input id="attachment" name="attachment" type="file" accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.avif,image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"><small>Maximální velikost fotografie je 10 MB. Podporované formáty: JPG, JPEG, PNG, WebP, HEIC, HEIF a AVIF.</small><p id="file-error" class="field-error" role="alert"></p></div>
-<div class="privacy-consent"><label class="consent-label"><input id="privacy-consent" name="privacy_consent" type="checkbox" value="souhlas" required><span>Odesláním formuláře vyjadřuji souhlas s podmínkami ochrany osobních údajů uvedených <button type="button" class="inline-link" id="privacy-link-form">ZDE</button>.<span class="required-star" aria-hidden="true"> *</span></label></div>
+<div class="form-field form-file-field"><label for="attachment">Fotografie prostoru <span class="optional">(nepovinné)</span></label><input id="attachment" name="attachment" type="file" accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.avif,image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"><div class="file-selection" id="file-selection" hidden><span id="file-name"></span><button type="button" id="file-remove" class="file-remove">Vymazat fotku</button></div><small>Maximální velikost fotografie je 10 MB. Podporované formáty: JPG, JPEG, PNG, WebP, HEIC, HEIF a AVIF.</small><p id="file-error" class="field-error" role="alert"></p></div>
+<div class="privacy-consent"><label class="consent-label"><input id="privacy-consent" name="privacy_consent" type="checkbox" value="souhlas" required><span>Odesláním formuláře vyjadřuji souhlas s podmínkami ochrany osobních údajů uvedených <button type="button" class="inline-link" id="privacy-link-form">ZDE</button>. <span class="required-star" aria-hidden="true">*</span></span></label></div>
 <button class="btn btn-primary" type="submit">Odeslat poptávku</button><p id="form-status" class="form-status" role="status"></p>
 </form></div></section>
 </main>
@@ -116,10 +116,10 @@
 <p class="cookie-dialog-intro">Abychom vám poskytli co nejlepší zážitek, používáme technologie, jako jsou soubory cookies, k ukládání a/nebo přístupu k informacím o zařízení. Udělení souhlasu s těmito technologiemi nám umožní zpracovávat údaje, jako je chování při procházení nebo jedinečné identifikátory na tomto webu. Neudělení souhlasu nebo jeho odvolání může nepříznivě ovlivnit určité funkce a vlastnosti webu.</p>
 
 <div class="cookie-options">
-<section class="cookie-option is-expanded">
+<section class="cookie-option">
 <div class="cookie-option-header">
 <div class="cookie-option-title">Funkční cookies</div>
-<div class="cookie-option-meta"><span class="always-active">Vždy aktivní</span><button class="cookie-expand" type="button" aria-expanded="true" aria-label="Sbalit Funkční cookies">⌃</button></div>
+<div class="cookie-option-meta"><span class="always-active">Vždy aktivní</span><button class="cookie-expand" type="button" aria-expanded="false" aria-label="Rozbalit Funkční cookies">⌄</button></div>
 </div>
 <div class="cookie-option-description">Technické uložení nebo přístup je nezbytně nutný pro oprávněný účel umožnění použití konkrétní služby výslovně požadované účastníkem nebo uživatelem, nebo pouze za účelem uskutečnění přenosu komunikace prostřednictvím sítě elektronických komunikací.</div>
 </section>

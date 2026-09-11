@@ -137,16 +137,37 @@ const form = document.querySelector('#contact-form');
 const status = document.querySelector('#form-status');
 const attachment = document.querySelector('#attachment');
 const fileError = document.querySelector('#file-error');
+const fileSelection = document.querySelector('#file-selection');
+const fileName = document.querySelector('#file-name');
+const fileRemove = document.querySelector('#file-remove');
 const MAX_FILE_SIZE = 10 * 1024 * 1024;
+
+const clearAttachment = () => {
+  if (attachment) attachment.value = '';
+  if (fileSelection) fileSelection.hidden = true;
+  if (fileName) fileName.textContent = '';
+  if (fileError) fileError.textContent = '';
+};
 
 attachment?.addEventListener('change', () => {
   if (fileError) fileError.textContent = '';
   const file = attachment.files?.[0];
-  if (file && file.size > MAX_FILE_SIZE) {
-    if (fileError) fileError.textContent = 'Vybraná fotografie je příliš velká. Maximální velikost je 10 MB.';
-    attachment.value = '';
+  if (!file) {
+    clearAttachment();
+    return;
   }
+
+  if (file.size > MAX_FILE_SIZE) {
+    if (fileError) fileError.textContent = 'Vybraná fotografie je příliš velká. Maximální velikost je 10 MB.';
+    clearAttachment();
+    return;
+  }
+
+  if (fileName) fileName.textContent = file.name;
+  if (fileSelection) fileSelection.hidden = false;
 });
+
+fileRemove?.addEventListener('click', clearAttachment);
 
 form?.addEventListener('submit', async e => {
   e.preventDefault();
@@ -172,13 +193,26 @@ form?.addEventListener('submit', async e => {
       headers: { Accept: 'application/json' }
     });
 
+    let result = null;
+    try {
+      result = await response.json();
+    } catch {
+      // Některé chybové odpovědi nemusí být JSON.
+    }
+
     if (response.ok) {
       form.reset();
+      clearAttachment();
       if (status) status.textContent = 'Děkuji. Poptávka byla úspěšně odeslána. Ozvu se vám během pracovního dne.';
     } else {
-      if (status) status.textContent = 'Poptávku se nepodařilo odeslat. Zkuste to prosím znovu.';
+      const details = Array.isArray(result?.errors)
+        ? result.errors.map(error => error.message || error.code).filter(Boolean).join(' ')
+        : '';
+      if (status) status.textContent = details
+        ? `Poptávku se nepodařilo odeslat: ${details}`
+        : 'Poptávku se nepodařilo odeslat. Zkontrolujte velikost a typ přílohy nebo to zkuste znovu.';
     }
   } catch (error) {
-    if (status) status.textContent = 'Poptávku se nepodařilo odeslat. Zkontrolujte připojení k internetu.';
+    if (status) status.textContent = 'Poptávku se nepodařilo odeslat. Zkontrolujte připojení k internetu a zkuste to znovu.';
   }
 });
