@@ -79,21 +79,30 @@
 <p class="eyebrow">Nejrychlejší je zavolat</p><h2>Chcete vymalovat nebo vytapetovat?</h2><p>Napište mi pár informací o prostoru nebo rovnou zavolejte. Domluvíme rozsah práce, termín a orientační cenu.</p>
 <div class="contact-details"><p class="phone-label">Zavolejte mi:</p><a class="phone" href="tel:+420777123456">777 123 456</a><span>Po–Pá: 8:00–18:00</span><span>Na zprávy odpovídám obvykle během pracovního dne.</span><a href="mailto:info@malirnovak.cz">info@malirnovak.cz</a></div>
 </div>
+<div class="contact-form-wrap">
+<div class="contact-choice" aria-label="Výběr způsobu odeslání poptávky">
+  <p class="contact-choice-title">Jak chcete poslat poptávku?</p>
+  <div class="contact-choice-grid">
+    <a class="contact-choice-card whatsapp-choice" href="https://wa.me/420728407940?text=Dobr%C3%BD%20den%2C%20cht%C4%9Bl%2Fa%20bych%20vyu%C5%BE%C3%ADt%20Va%C5%A1e%20slu%C5%BEby%20%C3%BAprav%20interi%C3%A9ru.%20Pos%C3%ADl%C3%A1m%20fotografii%20prostoru%20a%20informace%20k%20popt%C3%A1vce%3A" target="_blank" rel="noopener noreferrer">
+      <span class="choice-card-icon" aria-hidden="true">WA</span><span class="choice-card-content"><strong>WhatsApp + fotografie</strong><span>Rychlá varianta, pokud chcete rovnou přiložit fotografii prostoru.</span></span><span class="choice-card-action">Poslat přes WhatsApp</span>
+    </a>
+    <a class="contact-choice-card form-choice" href="#contact-form">
+      <span class="choice-card-icon" aria-hidden="true">✉</span><span class="choice-card-content"><strong>Kontaktní formulář</strong><span>Vhodné, pokud chcete poptávku podrobněji popsat a poslat e-mailem.</span></span><span class="choice-card-action">Vyplnit formulář</span>
+    </a>
+  </div>
+</div>
 <form id="contact-form" class="contact-form" action="https://formspree.io/f/xjyvlora" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="subject" value="Nová poptávka – Malíř Novák">
-<div class="form-field"><label for="name">Jméno a příjmení <span class="required-star" aria-hidden="true">*</span></label><input id="name" name="name" required></div>
-<div class="form-field"><label for="email">E-mail <span class="required-star" aria-hidden="true">*</span></label><input id="email" name="email" type="email" required></div>
-<div class="form-field"><label for="phone">Telefon</label><input id="phone" name="phone" type="tel"></div>
-<div class="form-field"><label for="work">Typ práce <span class="required-star" aria-hidden="true">*</span></label><select id="work" name="work" required><option value="">Vyberte službu</option><option>Malování</option><option>Příprava stěn</option><option>Tapetování</option><option>Nátěry</option><option>Drobné opravy</option><option>Potřebuji poradit</option></select></div>
-<div class="form-field"><label for="message">Zpráva <span class="required-star" aria-hidden="true">*</span></label><textarea id="message" name="message" rows="4" placeholder="Např. 2 pokoje, cca 45 m², Příbram..." required></textarea></div>
-<div class="form-field form-file-field"><label for="attachment">Fotografie prostoru <span class="optional">(nepovinné)</span></label><input id="attachment" name="attachment" type="file" accept=".jpg,.jpeg,.png,.webp,.heic,.heif,.avif,image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"><div class="file-selection" id="file-selection" hidden><span id="file-name"></span><button type="button" id="file-remove" class="file-remove">Vymazat fotku</button></div><small>Maximální velikost fotografie je 10 MB. Podporované formáty: JPG, JPEG, PNG, WebP, HEIC, HEIF a AVIF.</small><p id="file-error" class="field-error" role="alert"></p></div>
-<div class="privacy-consent"><label class="consent-label"><input id="privacy-consent" name="privacy_consent" type="checkbox" value="souhlas" required><span>Odesláním formuláře vyjadřuji souhlas s podmínkami ochrany osobních údajů uvedených <button type="button" class="inline-link" id="privacy-link-form">ZDE</button>. <span class="required-star" aria-hidden="true">*</span></span></label></div>
-<button class="btn btn-primary" type="submit">Odeslat poptávku</button><p id="form-status" class="form-status" role="status"></p>
-<div class="whatsapp-contact">
-  <div class="whatsapp-contact-copy"><strong>Chcete poslat i fotografii prostoru?</strong><span>Pošlete poptávku a fotografii jednoduše přes WhatsApp.</span></div>
-  <a class="btn whatsapp-btn" href="https://wa.me/420728407940?text=Dobr%C3%BD%20den%2C%20m%C3%A1m%20z%C3%A1jem%20o%20malov%C3%A1n%C3%AD%20nebo%20jin%C3%A9%20%C3%BApravy%20interi%C3%A9ru.%20R%C3%A1d%2Fa%20bych%20poslal%2Fa%20fotografii%20prostoru%20a%20informace%20k%20popt%C3%A1vce." target="_blank" rel="noopener noreferrer">Poslat poptávku přes WhatsApp</a>
-</div>
-</form></div></section>
+<label for="name">Jméno a příjmení <span>*</span></label><input id="name" name="name" type="text" autocomplete="name" required>
+<label for="email">E-mail <span>*</span></label><input id="email" name="email" type="email" autocomplete="email" required>
+<label for="phone">Telefon</label><input id="phone" name="phone" type="tel" autocomplete="tel">
+<label for="work">Typ práce <span>*</span></label><select id="work" name="work" required><option value="" selected disabled>Vyberte možnost</option><option>Malování</option><option>Tapetování</option><option>Příprava a opravy stěn</option><option>Nátěry</option><option>Jiné</option></select>
+<label for="message">Popis poptávky <span>*</span></label><textarea id="message" name="message" rows="6" required placeholder="Např. místnost, přibližná plocha, požadovaný termín…"></textarea>
+<label for="attachment">Fotografie prostoru <span class="optional">(volitelné)</span></label><input id="attachment" name="attachment" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif,image/avif"><div id="file-info" class="file-info" hidden></div><button type="button" id="remove-file" class="file-remove" hidden>Vymazat fotku</button>
+<label class="consent"><input type="checkbox" name="consent" required><span>Souhlasím se zpracováním osobních údajů pro účely vyřízení této poptávky. Více informací najdete v <button type="button" class="link-button" data-open-privacy>zásadách ochrany soukromí</button>. *</span></label>
+<button class="btn btn-primary form-submit" type="submit">Odeslat poptávku</button><div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+</form>
+</div></div></section>
 </main>
 
 <footer class="site-footer"><div class="container footer-grid"><div><a class="logo" href="#top">Malíř pokojů <span>Novák</span></a><p>Malování, tapetování a příprava interiérů v Příbrami a okolí.</p></div><div><h2>Kontakt</h2><a href="tel:+420777123456">777 123 456</a><a href="mailto:info@malirnovak.cz">info@malirnovak.cz</a></div><div><h2>Odkazy</h2><a href="#sluzby">Služby</a><a href="#cenik">Ceník</a><a href="#kontakt">Poptávka</a></div></div>
